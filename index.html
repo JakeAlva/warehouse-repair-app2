@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warehouse Repair App v2</title>
+<link rel="manifest" href="manifest.json">
+<style>
+body { font-family: Arial, sans-serif; margin: 0; background:#f9fafb; }
+header { background:#0d6efd; color:white; padding:12px; text-align:center; font-weight:bold; }
+.container { padding:16px; max-width:800px; margin:auto; }
+.card { background:white; padding:16px; margin-bottom:16px; border-radius:8px; box-shadow:0 1px 2px rgba(0,0,0,0.1); }
+label { display:block; margin-top:8px; font-size:14px; }
+input, select { width:100%; padding:8px; margin-top:4px; border:1px solid #ccc; border-radius:6px; }
+button { margin-top:12px; padding:10px 14px; border:none; border-radius:6px; cursor:pointer; }
+button.primary { background:#0d6efd; color:white; }
+button.secondary { background:#e5e7eb; }
+.hidden { display:none; }
+</style>
+</head>
+<body>
+<header>Warehouse Repair App v2</header>
+
+<div class="container">
+
+<!-- Page 1: Frame Dimensions -->
+<div id="page1" class="card">
+<h2>Frame Dimensions</h2>
+<label>Depth <input id="depth"></label>
+<label>Width <input id="width"></label>
+<label>Strut Sizes (L • W • H) <input id="strutSizes"></label>
+<label>Footplate Dimensions <input id="footplate"></label>
+<label>Strut Heights <input id="strutHeights"></label>
+<label>Hole Punch Style <input id="holePunch"></label>
+<label>Color <input id="color"></label>
+<label>Rack Manufacturer
+<select id="manufacturer">
+<option>Interlake</option><option>Unarco</option><option>Mecalux</option><option>Ridg-U-Rak</option>
+<option>Advanced</option><option>Frazier</option><option>Konstant</option><option>Sturdi-Bilt</option><option>Penco</option>
+</select>
+</label>
+<button id="toPage2" class="primary">Next: Damage Info</button>
+</div>
+
+<!-- Page 2: Damage & Repair Info -->
+<div id="page2" class="card hidden">
+<h2 id="damageTitle">Damage Entry 1</h2>
+<label>Location of Damage <input id="damageLocation"></label>
+<label>Type of Repair Needed
+<select id="repairType">
+<option>EVL-S</option><option>EVL-D</option><option>BAD</option><option>BFL</option>
+</select>
+</label>
+<label>Height of Repair Needed
+<select id="repairHeight"></select>
+</label>
+<label>Beam Level Height <input id="beamHeight"></label>
+<label>Struts Needed?
+<select id="strutsNeeded">
+<option>No</option><option>Yes</option>
+</select>
+</label>
+<div id="strutDetails" class="hidden">
+<label>Diagonal Struts <input type="number" id="diagStruts"></label>
+<label>Horizontal Struts <input type="number" id="horizStruts"></label>
+</div>
+<button id="nextDamage" class="primary">Next Damage</button>
+<button id="backToFrames" class="secondary">Back to Frames</button>
+<button id="exportExcel" class="secondary">Export to Excel</button>
+</div>
+
+<script src="app_v2.js"></script>
+</body>
+</html>
